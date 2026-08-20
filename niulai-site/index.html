@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="牛来 NIULAI GAMES，一间专注于核心玩法与重复可玩性的独立游戏工作室。" />
+  <meta name="theme-color" content="#111111" />
+  <title>牛来 · NIULAI GAMES</title>
+  <link rel="icon" type="image/png" href="./assets/favicon.png" />
+  <style>
+    :root {
+      --bg: #0d0f12;
+      --bg-soft: #15181d;
+      --card: rgba(255,255,255,.045);
+      --line: rgba(255,255,255,.09);
+      --text: #f4f1ea;
+      --muted: #a9a7a2;
+      --gold: #d7aa52;
+      --gold-light: #f0cc7c;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(215,170,82,.11), transparent 34%),
+        linear-gradient(180deg, #0c0e11 0%, #101217 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(13,15,18,.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid rgba(215,170,82,.3);
+    }
+
+    .brand small {
+      display: block;
+      margin-top: -2px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .18em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      color: #c8c5bf;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .hero {
+      min-height: 680px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 90px 0 72px;
+    }
+
+    .hero-logo {
+      width: clamp(150px, 20vw, 220px);
+      aspect-ratio: 1;
+      border-radius: 34px;
+      box-shadow: 0 22px 70px rgba(0,0,0,.38);
+      border: 1px solid rgba(215,170,82,.24);
+    }
+
+    .eyebrow {
+      margin-top: 30px;
+      color: var(--gold-light);
+      font-size: 13px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 12px 0 16px;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.05;
+      letter-spacing: .03em;
+    }
+
+    .hero p {
+      width: min(100%, 720px);
+      margin: 0 auto;
+      color: #c3c0ba;
+      font-size: clamp(16px, 2.2vw, 20px);
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      color: var(--text);
+      transition: .2s ease;
+    }
+
+    .btn.primary {
+      color: #16120b;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      font-weight: 700;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    section {
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 36px;
+    }
+
+    .section-tag {
+      color: var(--gold-light);
+      letter-spacing: .2em;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.25;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 760px;
+      margin-top: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+    }
+
+    .card-index {
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: .14em;
+    }
+
+    .card h3 {
+      margin: 10px 0 8px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .game-card {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      padding: 34px;
+      border-radius: 24px;
+      border: 1px solid rgba(215,170,82,.2);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(215,170,82,.12), transparent 28%),
+        var(--card);
+    }
+
+    .game-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(215,170,82,.10);
+      color: var(--gold-light);
+      border: 1px solid rgba(215,170,82,.18);
+      font-size: 12px;
+    }
+
+    .game-card h3 {
+      margin: 18px 0 12px;
+      font-size: clamp(32px, 5vw, 52px);
+    }
+
+    .game-card p {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .game-visual {
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      border: 1px dashed rgba(215,170,82,.25);
+      background:
+        linear-gradient(135deg, rgba(215,170,82,.08), rgba(255,255,255,.02));
+      text-align: center;
+      color: #8f8b82;
+      padding: 24px;
+    }
+
+    .game-visual strong {
+      display: block;
+      color: var(--gold-light);
+      font-size: 48px;
+      letter-spacing: .12em;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      padding: 50px 0 66px;
+      color: #85827c;
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 780px) {
+      .nav-links { display: none; }
+      .hero { min-height: 600px; padding-top: 70px; }
+      .section-head { grid-template-columns: 1fr; gap: 12px; }
+      .grid { grid-template-columns: 1fr; }
+      .game-card { grid-template-columns: 1fr; padding: 24px; }
+      .game-visual { min-height: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="牛来首页">
+        <img src="./assets/niulai-logo.png" alt="牛来 Logo" />
+        <span>
+          牛来
+          <small>NIULAI GAMES</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#about">关于我们</a>
+        <a href="#games">在研游戏</a>
+        <a href="#values">我们在意的事</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" style="border-top:0;">
+      <div class="wrap">
+        <img class="hero-logo" src="./assets/niulai-logo.png" alt="牛来 NIULAI GAMES" />
+        <div class="eyebrow">Independent Game Studio</div>
+        <h1>牛来</h1>
+        <p>
+          从一个简单但有意思的机制开始，把它不断打磨、组合和扩展，
+          直到它真正变得好玩。
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#games">查看在研游戏</a>
+          <a class="btn" href="#about">了解牛来</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-tag">About</div>
+          <div>
+            <h2 class="section-title">小团队，也可以做有记忆点的游戏。</h2>
+            <p class="section-copy">
+              牛来是一间独立游戏工作室。我们更关注核心机制带来的乐趣，
+              希望在有限的规模里，把每一次选择、每一局体验和“再来一局”的冲动做扎实。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="games">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-tag">Games</div>
+          <div>
+            <h2 class="section-title">正在开发</h2>
+            <p class="section-copy">
+              第一款作品仍在早期开发阶段。当前目标不是堆砌内容，而是先把核心循环做到值得反复游玩。
+            </p>
+          </div>
+        </div>
+
+        <article class="game-card">
+          <div>
+            <span class="game-badge">IN DEVELOPMENT · 开发中</span>
+            <h3>《烽火》</h3>
+            <p>
+              一款围绕回合决策、卡牌构筑与战斗节奏展开的独立游戏。
+              我们正在持续验证核心玩法，并会在合适的时候开放更多测试信息。
+            </p>
+          </div>
+          <div class="game-visual" aria-label="烽火占位视觉">
+            <div>
+              <strong>烽火</strong>
+              Gameplay First
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="values">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-tag">Values</div>
+          <div>
+            <h2 class="section-title">我们在意的事</h2>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="card-index">01 / GAMEPLAY</div>
+            <h3>先好玩，再扩张</h3>
+            <p>先验证核心机制，再增加内容、系统与包装，不让规模掩盖玩法本身的问题。</p>
+          </div>
+          <div class="card">
+            <div class="card-index">02 / CHOICE</div>
+            <h3>让选择有意义</h3>
+            <p>希望玩家的判断能够真正影响接下来的局面，而不是只在数值里做无感的加减。</p>
+          </div>
+          <div class="card">
+            <div class="card-index">03 / REPLAY</div>
+            <h3>值得再来一局</h3>
+            <p>通过清晰的反馈、组合空间与节奏变化，做出能够反复体验而不依赖堆量的乐趣。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>© 2026 牛来 · NIULAI GAMES</div>
+      <div>Independent Game Studio</div>
+    </div>
+  </footer>
+</body>
+</html>
